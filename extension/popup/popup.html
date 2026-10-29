@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>No Dupe Tabs</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <input id="search" type="search" placeholder="Search open tabs" autocomplete="off" autofocus />
+      <button id="pause" class="chip" type="button"></button>
+      <button id="options" class="icon-btn" type="button" title="Settings" aria-label="Settings">&#9881;</button>
+    </header>
+    <nav>
+      <button type="button" data-view="tabs" class="active">Tabs <span id="count-tabs" class="count"></span></button>
+      <button type="button" data-view="duplicates">Duplicates <span id="count-dupes" class="count"></span></button>
+      <button type="button" data-view="recent">Recently prevented</button>
+    </nav>
+    <ul id="list"></ul>
+    <footer>
+      <button id="exempt" type="button" hidden></button>
+      <button id="close-all" type="button" class="danger" hidden>Close all duplicates</button>
+    </footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

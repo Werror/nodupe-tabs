@@ -1,0 +1,10 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light dark; font: 14px system-ui, sans-serif; }
+body { max-width: 680px; margin: 24px auto; padding: 0 16px; }
+fieldset { border: 1px solid #8884; border-radius: 8px; margin: 0 0 16px; padding: 12px 16px; display: grid; gap: 10px; }
+legend { font-weight: 600; padding: 0 4px; }
+textarea { width: 100%; font: 13px ui-monospace, monospace; padding: 6px; }
+select { margin-left: 4px; }
+#errors { color: #d32f2f; white-space: pre-line; }
+.actions { display: flex; justify-content: space-between; align-items: center; }
+#status { color: #2e7d32; }

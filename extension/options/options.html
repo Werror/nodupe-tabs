@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>No Dupe Tabs settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <h1>No Dupe Tabs</h1>
+    <form id="form">
+      <fieldset>
+        <legend>General</legend>
+        <label><input type="checkbox" name="paused" /> Paused (let duplicate tabs open)</label>
+        <label>
+          Look for duplicates in
+          <select name="scope">
+            <option value="all">all windows</option>
+            <option value="window">the same window</option>
+            <option value="group">the same tab group</option>
+          </select>
+        </label>
+        <label>
+          When a duplicate is caught, move the existing tab
+          <select name="moveOriginal">
+            <option value="none">nowhere (just switch to it)</option>
+            <option value="toDuplicate">to where the duplicate was opened</option>
+          </select>
+        </label>
+        <label><input type="checkbox" name="reloadOriginal" /> Reload the existing tab after switching to it</label>
+        <label><input type="checkbox" name="notify" /> Show a notification when a duplicate is caught</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>URL matching</legend>
+        <label><input type="checkbox" name="ignoreQuery" /> Ignore query strings (<code>?a=1</code>) everywhere</label>
+        <label><input type="checkbox" name="ignoreHash" /> Ignore fragments (<code>#section</code>) everywhere</label>
+        <label for="rules">Per-site rules, one per line: <code>&lt;url prefix&gt; query hash</code></label>
+        <textarea id="rules" name="rules" rows="4" placeholder="docs.example.com/guide hash&#10;news.example.com query hash"></textarea>
+        <label for="singleTabDomains">Single-tab sites: any page on these domains counts as a duplicate (one per line)</label>
+        <textarea id="singleTabDomains" name="singleTabDomains" rows="3" placeholder="mail.google.com"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Which URLs to dedupe</legend>
+        <label><input type="radio" name="listMode" value="allow" /> Dedupe everything except URLs containing an entry below</label>
+        <label><input type="radio" name="listMode" value="block" /> Dedupe only URLs containing an entry below</label>
+        <textarea name="list" rows="5" placeholder="localhost:3000&#10;docs.google.com/spreadsheets"></textarea>
+      </fieldset>
+
+      <p id="errors" role="alert"></p>
+      <div class="actions">
+        <span id="status" role="status"></span>
+        <button id="reset" type="button">Reset to defaults</button>
+      </div>
+    </form>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
