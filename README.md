@@ -36,6 +36,13 @@ npm run pack        # builds dist/nodupe-tabs-<version>.zip for the Chrome Web S
 
 `npm run test:e2e` needs a Chromium build that still accepts `--load-extension` (Chromium or Chrome for Testing, not branded Chrome). Install one with `npx playwright-core install chromium`, or point `CHROME_PATH` at an existing binary. Set `HEADLESS=0` to watch it run.
 
+### Releasing
+
+1. Bump `version` in both `extension/manifest.json` and `package.json`, and merge that to `main`.
+2. Tag and push: `git tag v0.2.0 && git push origin v0.2.0`.
+
+The Release workflow checks that the tag matches both versions, runs lint and all tests, then publishes a GitHub Release with `nodupe-tabs-<version>.zip` attached. That zip is what you upload to the Chrome Web Store.
+
 ### Layout
 
 ```
